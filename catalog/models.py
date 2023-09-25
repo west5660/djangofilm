@@ -19,7 +19,7 @@ class Spec(models.Model):
     spec= models.CharField(max_length=40, verbose_name='Специальность доктора')
 
     def __str__(self):
-        return self.name, self.spec
+        return f'{self.name},{self.spec}'
 
 class Pacient(models.Model):
     name = models.CharField(max_length=40, verbose_name='Кличка пациента')
@@ -30,10 +30,10 @@ class Pacient(models.Model):
         return self.name
 
 class Zapisi(models.Model):
-    num = models.IntegerField(verbose_name='Номер записи')
+    num = models.CharField(max_length=40, verbose_name='Номер записи')
     pacient = models.ForeignKey(Pacient, on_delete=models.SET_NULL, null=True)
     spec = models.ManyToManyField(Spec)
-    num_vizit = models.IntegerField()
+    num_vizit = models.CharField(max_length=40, verbose_name='Номер визита')
     data_vizit = models.DateField(null=True, blank=False, verbose_name='Дата визита')
     anamnez = models.CharField(max_length=40, verbose_name='Анамнез')
     diagnoz = models.ForeignKey(Diagnoz, on_delete=models.SET_NULL, null=True)
