@@ -43,10 +43,10 @@ class Zapisi(models.Model):
     def __str__(self):
         return self.num
 
-    # def display_pacient(self):
-    #     res = ''
-    #     for a in self.pacient.all():
-    #         res += a.lname + ' '
-    #     return res
-    #
-    # display_pacient.short_description = 'Пациенты'
+    def display_spec(self):
+        res = ''
+        for a in self.spec.all():
+            res += a.name + ' '
+        return res
+
+    display_spec.short_description = 'Врач'
