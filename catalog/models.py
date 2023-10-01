@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 class Diagnoz(models.Model):
     diagnoz = models.CharField(max_length=40, verbose_name='Диагноз')
@@ -50,3 +50,6 @@ class Zapisi(models.Model):
         return res
 
     display_spec.short_description = 'Врач'
+
+    def get_absolute_url(self):
+        return reverse('info', args=[self.id])

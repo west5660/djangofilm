@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2>Каталог пациентов</h2>
+    <ul>
+    {% for pacient in pacient_list %}
+        <li>
+        <a href="{{ zapici.get_absolute_url }}">{{ pacient.name }}</a>
+        <p>{{ pacient.adres }}</p>
+        <p>{{ pacient.tel }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+
+
+{% endblock content %}
