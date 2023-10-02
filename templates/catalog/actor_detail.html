@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2>Фамилия {{ actor.lname }}</h2>
+    <h2>Имя {{ actor.fname }}</h2>
+    <h2>Что-то {{ actor.born }}</h2>
+    <h2>Страна {{ actor.country }}</h2>
+
+    <h2>Работы в картинах:</h2>
+    {% for kino in actor.kino_set.all %}
+        <p>{{ kino.title }}</p>
+    {% endfor %}
+{% endblock content %}

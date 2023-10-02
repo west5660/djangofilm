@@ -30,7 +30,17 @@ class Kinolist(generic.ListView):
     paginate_by = 2
 class KinoDetail(generic.DetailView):
     model = Kino
+class Actorlist(generic.ListView):
+    model = Actor
+    paginate_by = 2
+class ActorDetail(generic.DetailView):
+    model = Actor
 
+class Directorlist(generic.ListView):
+    model = Director
+    paginate_by = 2
+class DirectorDetail(generic.DetailView):
+    model = Director
 # from django.http import HttpResponse
 # def info(req,id):
 #     film = Kino.objects.get(id=id)

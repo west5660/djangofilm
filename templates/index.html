@@ -12,8 +12,8 @@
     {% block menu %}
     <div class="menu">
         <a href="{% url 'allkino' %}">Фильмы</a>
-        <a href="">Актеры</a>
-        <a href="">Режисеры</a>
+        <a href="{% url 'allactor' %}">Актеры</a>
+        <a href="{% url 'alldirector' %}">Режисеры</a>
         <a href="">Подписка</a>
         <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'logout' %}">Logout</a>

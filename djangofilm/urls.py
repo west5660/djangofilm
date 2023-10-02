@@ -22,8 +22,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name='home'),
     path('kino/',views.Kinolist.as_view(), name='allkino'),
+    path('actor/',views.Actorlist.as_view(), name='allactor'),
+    path('director/',views.Directorlist.as_view(), name='alldirector'),
     # path('kino/<int:id>/',views.info, name='info'),
     path('kino/<slug:pk>/<str:title>',views.KinoDetail.as_view(), name='info'),
+    path('actor/<slug:pk>/<str:title>',views.ActorDetail.as_view(), name='infoactor'),
+    path('director/<slug:pk>/<str:title>',views.DirectorDetail.as_view(), name='infodirector'),
+
     path('user/', include('django.contrib.auth.urls'))
 
 ]

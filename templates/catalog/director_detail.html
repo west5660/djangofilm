@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2>Фамилия {{ director.lname }}</h2>
+    <h2>Имя {{ director.fname }}</h2>
+
+    <h2>Работы над картинах:</h2>
+    {% for kino in director.kino_set.all %}
+        <p>{{ kino.title }} // {{ kino.genre }} // {{ kino.year }}</p>
+    {% endfor %}
+{% endblock content %}
