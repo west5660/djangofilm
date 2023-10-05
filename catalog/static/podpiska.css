@@ -1,0 +1,19 @@
+.main{
+    background-color: gold;
+    text-align: center;
+}
+.cont{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.card{
+    text-align: center;
+    border: 2px solid;
+    width: 10%;
+
+}
+.card img{
+    width: 100%;
+    height: 50%;
+}

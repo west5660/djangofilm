@@ -8,11 +8,13 @@ def index(req):
     numkino = Kino.objects.all().count()
     numactor = Actor.objects.all().count()
     numfree = Kino.objects.filter(status__kino=1).count()
-    try:
-        username = req.user.username
-    except:
-        username = 'Гость'
-    username = req.user.username
+    if req.user.username:
+        username=req.user.first_name
+        print(req.user.first_name, '#', req.user.id)
+    else:
+        username='Гость'
+        print(req.user.id)
+    # username = req.user.username
     data = {'k1':numkino, 'k2':numactor, 'k3':numfree, 'username':username}
     # user = User.objects.create_user('user2','user2@mail.ru','useruser')
     # user.first_name = 'Vlad'
@@ -45,3 +47,26 @@ class DirectorDetail(generic.DetailView):
 # def info(req,id):
 #     film = Kino.objects.get(id=id)
 #     return HttpResponse(film.title)
+
+def status(req):
+    k1 = Status.objects.all()
+    data = {'podpiska':k1}
+    return render(req,'podpiska.html', data)
+
+def prosmotr(req,id1,id2,id3):
+    print(id1,id2,id3)
+    mas=['бесплатно','базовая','супер'] #kino id2
+    mas2=['free','based','super']    #user   id3
+    if id3!=0:
+        status = User.objects.get(id=id3)  # нашли юзера
+        print(status)
+        status = status.groups.all()   #нашли его подписки
+        status = status[0].id       #нашли айди его подписки
+        print(status)
+    if id3==0:                  #выдает гостю подписку номер 1
+        status=1
+    if status>=id2:             #сравниваем может ли он смотреть этот фильм
+        print('ok')
+    else:
+        print('nelza')
+    return render(req, 'index.html')
