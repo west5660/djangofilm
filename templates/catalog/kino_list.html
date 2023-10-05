@@ -1,6 +1,9 @@
 {% extends 'index.html' %}
+{% load static %}
 {% block content %}
     <h2>Каталог фильмов</h2>
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+    <link rel="stylesheet" href="{% static 'kinocss.css' %}">
     <ul>
     {% for kino in kino_list %}
         <li>

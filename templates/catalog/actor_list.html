@@ -1,5 +1,7 @@
 {% extends 'index.html' %}
+{% load static %}
 {% block content %}
+    <link rel="stylesheet" href="{% static 'kinocss.css' %}">
     <h2>Список актеров</h2>
     <ul>
     {% for actor in actor_list %}

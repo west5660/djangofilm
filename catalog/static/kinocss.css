@@ -1,0 +1,77 @@
+/* Стиль заголовка "Каталог фильмов" */
+h2 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+/* Стилизация списка фильмов */
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    color: #e6ece8;
+}
+
+/* Стиль элемента списка фильмов */
+li {
+    margin: 10px;
+    padding: 15px;
+    background-color: #0e86e7;
+    border: 1px solid rgba(225, 216, 13, 0.5);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(225, 216, 13, 0.5);
+}
+
+/* Стиль ссылки на фильм */
+li a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+}
+li a:hover{
+    background-color: #e50914;
+    color: #333333;
+}
+/* Стиль жанра фильма */
+li p {
+    font-size: 16px;
+    color: rgb(206, 205, 205);
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Стиль для блока пагинации */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Стиль для ссылок пагинации */
+.step-links a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #e50914;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+/* Стиль для текущей страницы пагинации */
+.step-links .current {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #e50914;
+    color: #fff;
+    border-radius: 3px;
+}
+
+/* Стиль для стрелок навигации пагинации */
+.step-links a:hover {
+    background-color: #ff4500;
+}

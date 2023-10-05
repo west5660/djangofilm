@@ -1,16 +1,63 @@
+/* Общий стиль страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cfdff1; /* Изменен цвет фона */
+    margin: 0;
+    padding: 0;
+}
 
-.menu{
+/* Стиль меню */
+.menu {
+    background-color: #e6ece8;
+    overflow: hidden;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: gainsboro;
-    line-height: 2em;
 }
-.menu a{
+
+.menu a {
+    float: left;
+    display: block;
+    color: rgb(16, 15, 15);
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    color: black;
-    font-size: 1.5em;
 }
-.menu a:hover{
-    background-color: gold;
+
+.menu a:hover {
+    background-color: #555;
+    color: #e6ece8;
+}
+
+/* Стиль заголовков и контента */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+
+
+/* Стиль ссылки на админку */
+a.admin-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+a.admin-link:hover {
+    color: #333;
+}
+
+/* Стиль для заголовка "Привет {{ username }}" */
+h1 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Стиль для статистики */
+.statistic {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
 }
