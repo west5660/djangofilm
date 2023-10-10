@@ -1,0 +1,9 @@
+
+.screen{
+    width: 500px;
+    height: 250px;
+    background-color: #333333;
+    text-align: center;
+    margin: auto;
+    color: white;
+}

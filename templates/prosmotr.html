@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+ {% block head %}
+    <title>Просмотры</title>
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+    <link rel="stylesheet" href="{% static 'prosmotr.css' %}">
+    {% endblock head %}
+{% block content %}
+    <h3>Фильм {{ kino }}</h3>
+    <div class="screen">
+        {% if prava %}
+            <h4>Приятного просмотра</h4>
+        {% else %}
+            <h4>Купите подписку</h4>
+        {% endif %}
+
+
+    </div>
+    <h3>Ваша подписка {{ status }}</h3>
+    <h3>Для фильма {{ statuskino }}</h3>
+
+        {% if not prava %}
+            {% if user.username %}
+            <h4>
+            <a href="{% url 'buystatus' type=2 %}">Купить базовую</a>
+            </h4>
+
+            <h4>
+            <a href="{% url 'buystatus' type=3 %}">Купить супер</a>
+            </h4>
+                {% else %}
+                  <h4>
+            <a href="{% url 'login' %}">Купить базовую</a>
+            </h4>
+
+            <h4>
+            <a href="{% url 'login' %}">Купить супер</a>
+                {% endif %}
+        {% endif %}
+{% endblock %}
