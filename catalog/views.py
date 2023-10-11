@@ -124,7 +124,7 @@ def registr(req):
             k4 = anketa.cleaned_data.get('last_name')
             k5 = anketa.cleaned_data.get('email')
             user=authenticate(username=k1,password=k2)  #сщздает пользователя регистрирует
-            man = User.objects.get(username=k1)           #найдем нового пользователя
+            man = User.objects.get(username=k1)           #найдем нового пользователя.
             #заполним поля в таблице
             man.email=k5
             man.first_name=k3
