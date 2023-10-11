@@ -32,5 +32,8 @@ urlpatterns = [
     path('status/',views.status,name='status'),
     path('status/prosmotr/<int:id1>/<int:id2>/<int:id3>',views.prosmotr,name='prosmotr'),
     path('status/buy/<int:type>/',views.buy, name= 'buystatus'),
+    path('kup_podpiska/', views.kup_podpiska, name='kup_podpiska'),
+    path('otpiska/<int:type>/', views.otpiska, name='otpiska'),
+    path('status/registr/',views.registr,name='registr')
 
 ]

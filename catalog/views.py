@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 # Create your views here.
 
@@ -89,3 +90,51 @@ def buy(req,type):
     k1=grnew.name
     data={'podpiska':k1}
     return render(req,'buy.html',data)
+
+
+def kup_podpiska(req):
+    return render(req, 'pokypka.html')
+
+def otpiska(req,type):
+    usid = req.user.id  # находим номер текущего пользователя
+    user123 = User.objects.get(id=usid)  # находим его в табличке юзер
+    statusnow = user123.groups.all()[0].id  # находим номер его погдписке (группы)
+    grold = Group.objects.get(id=statusnow)  # находим его подписку в таблице group
+    grold.user_set.remove(user123)  # удаляем старую подписку
+    grnew = Group.objects.get(id=type)  # находим новую подписку в таблице group
+    grnew.user_set.add(user123)  # добовляем новую подписку
+    k1 = grnew.name
+    data = {'otpiska':k1}
+    return render(req, 'pokypka.html', data)
+
+from .form import SignUpform
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
+
+def registr(req):
+    if req.POST:
+        anketa = SignUpform(req.POST)
+        if anketa.is_valid():
+            print('ok')
+            anketa.save()
+            k1 = anketa.cleaned_data.get('username')
+            k2 = anketa.cleaned_data.get('password1')
+            k3 = anketa.cleaned_data.get('first_name')
+            k4 = anketa.cleaned_data.get('last_name')
+            k5 = anketa.cleaned_data.get('email')
+            user=authenticate(username=k1,password=k2)  #сщздает пользователя регистрирует
+            man = User.objects.get(username=k1)           #найдем нового пользователя
+            #заполним поля в таблице
+            man.email=k5
+            man.first_name=k3
+            man.last_name = k4
+            man.save()
+            login(req,user)                              #входит на сайт новым пользователем
+            group = Group.objects.get(id=1)              #находим бесплатную подписку
+            group.user_set.add(man)                      #записываем юзеру подписку
+            return redirect('home')
+    else:
+        anketa = SignUpform()
+    data={'regform':anketa}
+    return render(req,'registration/registration.html',context=data)
