@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+
+{% extends 'index.html' %}
+{% load static %}
 <html lang="en">
-<head>
+{% block content %}
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+
     <h2>Вход</h2>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
@@ -13,13 +15,18 @@
                 <td>{{ form.username.label_tag }}</td>
                 <td>{{ form.username }}</td>
             </tr>
+            <tr>
                 <td>{{ form.password.label_tag }}</td>
                 <td>{{ form.password }}</td>
+            </tr>
+            <tr>
+                <a href="{% url 'password_reset' %}">забыли пароль</a>
+
+            </tr>
         </table>
         <input type="submit" value="вход">
     </form>
     <h2>
         <a href="{% url 'registr' %}">Регистрация</a>
     </h2>
-</body>
-</html>
+{% endblock content %}

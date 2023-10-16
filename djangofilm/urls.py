@@ -37,3 +37,10 @@ urlpatterns = [
     path('status/registr/',views.registr,name='registr')
 
 ]
+'''
+login
+reset_form
+reset_done
+reset_confirm
+reset_complete
+'''
