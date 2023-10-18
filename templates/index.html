@@ -15,6 +15,9 @@
         <a href="{% url 'allactor' %}">Актеры</a>
         <a href="{% url 'alldirector' %}">Режисеры</a>
         <a href="{%  url 'status' %}">Подписка</a>
+<a href="{% url 'search_films' %}">Поиск фильмов</a>
+
+
 
   <a href="{% url 'kup_podpiska' %}">Подписка купить</a>
 
@@ -34,6 +37,7 @@
         <h2>На сайте {{ k1 }} фильмов</h2>
         <h2>На сайте {{ k2 }} актеров</h2>
         <h2>На сайте {{ k3 }} фильмов бесплатно</h2>
+
     {% endblock content %}
 
 <a href="{% url 'admin:index' %}">Админка</a>

@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <h2>Результаты поиска для "{{ query }}"</h2>
+ <h1>Результаты поиск</h1>
+   {% for film in films %}
+    <div class="film-card">
+        <h3>{{ film.title }}</h3>
+        <p>{{ film.summary }}</p>
+<a href="{% url 'info' pk=film.pk title=film.title %}">Подробнее</a>
+    </div>
+{% empty %}
+    <p>Ничего не найдено.</p>
+{% endfor %}
+{% endblock content %}

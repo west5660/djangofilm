@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+фв
+    <form method="get" action="{% url 'search_films' %}">
+    {{ form.as_p }}
+    <button type="submit">Искать</button>
+</form>
+{% endblock content %}

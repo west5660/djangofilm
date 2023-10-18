@@ -18,3 +18,5 @@ class SignUpform(UserCreationForm):
     # class Meta():
     #     model = User
     #     fields = {'email','first_name','last_name'}
+class FilmSearchForm(forms.Form):
+    query = forms.CharField(max_length=100, label='Поиск')

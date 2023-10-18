@@ -138,3 +138,22 @@ def registr(req):
         anketa = SignUpform()
     data={'regform':anketa}
     return render(req,'registration/registration.html',context=data)
+
+
+from django.shortcuts import render
+from .models import Kino
+from .form import FilmSearchForm
+
+def search_films(request):
+    if request.method == 'GET':
+        form = FilmSearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            films = Kino.objects.filter(title__icontains=query)
+            return render(request, 'search_results.html', {'films': films, 'query': query})
+    else:
+        form = FilmSearchForm()
+    return render(request, 'search.html', {'form': form})
+
+
+

@@ -77,5 +77,13 @@ class Kino(models.Model):
         return reverse('info', args=[self.id, self.title])
         # return f'kino'/{self.id}/{self.title}
 
+from django.db import models
+from django.contrib.auth.models import User
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
