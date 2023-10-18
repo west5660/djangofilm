@@ -4,4 +4,4 @@ pycodestyle==2.10.0
 pyflakes==3.0.1
 style==1.1.0
 update==0.0.1
-django
+django==4.2.6
